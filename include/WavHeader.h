@@ -8,6 +8,7 @@ public:
   WavHeader();
   ~WavHeader();
   bool read(const std::string &fileName);
+  void printState();
 
 private:
   // Master RIFF chunk

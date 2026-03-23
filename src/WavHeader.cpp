@@ -7,6 +7,7 @@ WavHeader::WavHeader() {}
 WavHeader::~WavHeader() {}
 bool WavHeader::read(const std::string &fileName) {
 
+  // std::string filesPath = "/samples/";
   std::string filesPath = "./samples/";
   std::ifstream audioFile;
   audioFile.open(filesPath.append(fileName), std::ios::binary);
@@ -32,6 +33,23 @@ bool WavHeader::read(const std::string &fileName) {
     return 1;
   } else {
     std::cerr << "Error opening file. \n";
+    std::cerr << "file to open: " << filesPath << "\n";
     return 0;
   }
+}
+
+void WavHeader::printState() {
+  std::cout << "File Type: " << std::string(fileTypeBlocID.data(),fileTypeBlocID.size()) << "\n";
+  std::cout << "File Size: " << fileSize << "\n";
+  std::cout << "File Format: " << std::string(fileFormatID.data(),fileFormatID.size()) << "\n";
+  std::cout << "Format Bloc ID: " << std::string(formatBlocID.data(),formatBlocID.size()) << "\n";
+  std::cout << "Bloc Size: " << blocSize << "\n";
+  std::cout << "Audio Format: " << audioFormat << "\n";
+  std::cout << "Num Channels: " << numChannels << "\n";
+  std::cout << "Sample Rate: " << sampleRate << "\n";
+  std::cout << "Byte Rate: " << byteRate << "\n";
+  std::cout << "Byte Per Bloc: " << bytePerBloc << "\n";
+  std::cout << "Bits Per Sample: " << bitsPerSample << "\n";
+  std::cout << "Data Bloc ID: " << std::string(dataBlocId.data(),dataBlocId.size()) << "\n";
+  std::cout << "Data Size: " << dataSize << "\n";
 }
