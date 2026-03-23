@@ -8,10 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(wav-processor
   src/main.cpp
   src/WavHeader.cpp
-)
-
-set_target_properties(wav-processor PROPERTIES
-    VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+  src/WavFile.cpp
 )
 
 target_include_directories(wav-processor

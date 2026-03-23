@@ -1,14 +1,21 @@
 #pragma once
 
 #include <array>
+#include <cstdint>
 #include <string>
 
 class WavHeader {
 public:
   WavHeader();
   ~WavHeader();
-  bool read(const std::string &fileName);
+  bool read(const std::string &fileName, std::ifstream &audioFile);
   void printState();
+  uint32_t getDataSize() const { return dataSize; }
+  uint32_t getFileSize() const { return fileSize; }
+  uint16_t getNumChannels() const { return numChannels; }
+  uint32_t getSampleRate() const { return sampleRate; }
+  uint16_t getBitsPerSample() const { return bitsPerSample; }
+
 
 private:
   // Master RIFF chunk

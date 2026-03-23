@@ -1,9 +1,6 @@
-#include "WavHeader.h"
-#include <iostream>
+#include "WavFile.h"
 
 int main(void) {
-  WavHeader *testWav = new WavHeader();
-  std::cout << testWav->read("guitar.wav") << "\n";
-  testWav->printState();
+    WavFile testWav("guitar.wav");
   return 0;
 }
