@@ -1,8 +1,9 @@
+([Español](https://github.com/filete/Cpp-WAV-Processor/blob/main/README_ES.md))
 # C++ WAV Processor
 
 c++ .wav audio files processor (under construction).
 
-##### Functionalities
+### Functionalities
 
 - [x] Read and interpret a .wav file header.
 - [x] Read and interpret a .wav file data.
@@ -11,12 +12,12 @@ c++ .wav audio files processor (under construction).
 - [ ] Add command line arguments.
 - [ ] ASCII FFT visualisation (*optional*).
 
-##### Technologies used
+### Technologies used
 
 - C++17
 - CMake
 
-##### How to compile
+### How to compile
 
 ```bash
 mkdir build && cd build
