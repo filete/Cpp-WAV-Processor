@@ -1,16 +1,20 @@
 ([Español](https://github.com/filete/Cpp-WAV-Processor/blob/main/README_ES.md))
+
 # C++ WAV Processor
 
-c++ .wav audio files processor (under construction).
+c++ 16bit WAV PMC audio files processor (under construction).
 
 ### Functionalities
 
 - [x] Read and interpret a .wav file header.
 - [x] Read and interpret a .wav file data.
-- [ ] Process the data from the file applying an IIR(**I**nfinite **I**mpulse **R**esponse) lowpass/highpass filter.
-- [ ] Write a .wav output file with the processed data.
+- [x] Process the data from the file applying an IIR(**I**nfinite **I**mpulse **R**esponse) lowpass/highpass filter.
+- [x] Write a .wav output file with the processed data.
 - [ ] Add command line arguments.
 - [ ] ASCII FFT visualisation (*optional*).
+
+>[!warning] Only use 16bit WAV, any other different format may couse undesired results.
+> Be midnful with the playing volume of the output file. 
 
 ### Technologies used
 
