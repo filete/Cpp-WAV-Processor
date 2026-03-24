@@ -2,3 +2,4 @@ build/
 .cache/
 notes.md
 compile_commands.json
+samples/guitar24b.wav
