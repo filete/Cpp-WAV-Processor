@@ -9,13 +9,13 @@ public:
   WavHeader();
   ~WavHeader();
   bool read(const std::string &fileName, std::ifstream &audioFile);
+  bool write(const std::string &fileName, std::ofstream &outputFile);
   void printState();
   uint32_t getDataSize() const { return dataSize; }
   uint32_t getFileSize() const { return fileSize; }
   uint16_t getNumChannels() const { return numChannels; }
   uint32_t getSampleRate() const { return sampleRate; }
   uint16_t getBitsPerSample() const { return bitsPerSample; }
-
 
 private:
   // Master RIFF chunk

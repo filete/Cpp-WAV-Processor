@@ -1,4 +1,5 @@
 #include "WavHeader.h"
+#include "IIRfilter.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -6,7 +7,6 @@
 WavHeader::WavHeader() {}
 WavHeader::~WavHeader() {}
 bool WavHeader::read(const std::string &fileName, std::ifstream &audioFile) {
-
 
   if (audioFile) {
     audioFile.read(fileTypeBlocID.data(), sizeof(fileTypeBlocID));
@@ -26,11 +26,36 @@ bool WavHeader::read(const std::string &fileName, std::ifstream &audioFile) {
     audioFile.read(dataBlocId.data(), sizeof(fileTypeBlocID));
     audioFile.read(reinterpret_cast<char *>(&dataSize), sizeof(dataSize));
 
-    return 1;
-  } else {
-    std::cerr << "Error opening file. \n";
-    return 0;
+    return true;
   }
+  std::cerr << "Error opening file: " << fileName << "\n";
+  return false;
+}
+
+bool WavHeader::write(const std::string &fileName, std::ofstream &outputFile) {
+  if (outputFile) {
+    outputFile.write(fileTypeBlocID.data(), sizeof(fileTypeBlocID));
+    outputFile.write(reinterpret_cast<char *>(&fileSize), sizeof(fileSize));
+    outputFile.write(fileFormatID.data(), sizeof(fileFormatID));
+    outputFile.write(formatBlocID.data(), sizeof(formatBlocID));
+    outputFile.write(reinterpret_cast<char *>(&blocSize), sizeof(blocSize));
+    outputFile.write(reinterpret_cast<char *>(&audioFormat),
+                     sizeof(audioFormat));
+    outputFile.write(reinterpret_cast<char *>(&numChannels),
+                     sizeof(numChannels));
+    outputFile.write(reinterpret_cast<char *>(&sampleRate), sizeof(sampleRate));
+    outputFile.write(reinterpret_cast<char *>(&byteRate), sizeof(byteRate));
+    outputFile.write(reinterpret_cast<char *>(&bytePerBloc),
+                     sizeof(bytePerBloc));
+    outputFile.write(reinterpret_cast<char *>(&bitsPerSample),
+                     sizeof(bitsPerSample));
+    outputFile.write(dataBlocId.data(), sizeof(dataBlocId));
+    outputFile.write(reinterpret_cast<char *>(&dataSize), sizeof(dataSize));
+    std::cout << "File header written: " << fileName << "\n";
+    return true;
+  }
+  std::cerr << "Error opening file: " << fileName << "\n";
+  return false;
 }
 
 void WavHeader::printState() {

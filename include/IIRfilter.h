@@ -6,19 +6,22 @@
 
 class IIRfilter {
 public:
-  IIRfilter(const WavHeader &fileInfo);
+  IIRfilter(const WavFile &audioFile);
   ~IIRfilter();
 
-  float setCutoff(uint16_t frequency);
+  void setCutoff(uint16_t frequency);
   float applySampleFilter(float inputFrame);
+  float applySampleFilter(float inputFrame, uint16_t cutoff);
   std::vector<float> applyFileFilter(const WavFile &audioFile);
+  std::vector<float> applyFileFilter(const WavFile &audioFile, uint16_t cutoff);
 
 private:
   const float PI = 3.14159265358979323846f;
 
-  float previousSample{};
+  uint32_t sampleRate{};
   float alpha{};
   float cutOff{};
+  float previousSample{};
 
-  void setAlpha(const uint32_t &sampleRate);
+  void setAlpha();
 };
