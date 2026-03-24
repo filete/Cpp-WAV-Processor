@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/dev/c++/projects/Cpp-WAV-Processor/build",
+  "command": "C:\\Users\\fapte\\scoop\\apps\\llvm\\current\\bin\\clang++.exe -IC:/dev/c++/projects/Cpp-WAV-Processor/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\wav-processor.dir\\src\\main.cpp.obj -c C:\\dev\\c++\\projects\\Cpp-WAV-Processor\\src\\main.cpp",
+  "file": "C:/dev/c++/projects/Cpp-WAV-Processor/src/main.cpp",
+  "output": "C:/dev/c++/projects/Cpp-WAV-Processor/build/CMakeFiles/wav-processor.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/dev/c++/projects/Cpp-WAV-Processor/build",
+  "command": "C:\\Users\\fapte\\scoop\\apps\\llvm\\current\\bin\\clang++.exe -IC:/dev/c++/projects/Cpp-WAV-Processor/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\wav-processor.dir\\src\\WavHeader.cpp.obj -c C:\\dev\\c++\\projects\\Cpp-WAV-Processor\\src\\WavHeader.cpp",
+  "file": "C:/dev/c++/projects/Cpp-WAV-Processor/src/WavHeader.cpp",
+  "output": "C:/dev/c++/projects/Cpp-WAV-Processor/build/CMakeFiles/wav-processor.dir/src/WavHeader.cpp.obj"
+},
+{
+  "directory": "C:/dev/c++/projects/Cpp-WAV-Processor/build",
+  "command": "C:\\Users\\fapte\\scoop\\apps\\llvm\\current\\bin\\clang++.exe -IC:/dev/c++/projects/Cpp-WAV-Processor/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\wav-processor.dir\\src\\WavFile.cpp.obj -c C:\\dev\\c++\\projects\\Cpp-WAV-Processor\\src\\WavFile.cpp",
+  "file": "C:/dev/c++/projects/Cpp-WAV-Processor/src/WavFile.cpp",
+  "output": "C:/dev/c++/projects/Cpp-WAV-Processor/build/CMakeFiles/wav-processor.dir/src/WavFile.cpp.obj"
+},
+{
+  "directory": "C:/dev/c++/projects/Cpp-WAV-Processor/build",
+  "command": "C:\\Users\\fapte\\scoop\\apps\\llvm\\current\\bin\\clang++.exe -IC:/dev/c++/projects/Cpp-WAV-Processor/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\wav-processor.dir\\src\\IIRfilter.cpp.obj -c C:\\dev\\c++\\projects\\Cpp-WAV-Processor\\src\\IIRfilter.cpp",
+  "file": "C:/dev/c++/projects/Cpp-WAV-Processor/src/IIRfilter.cpp",
+  "output": "C:/dev/c++/projects/Cpp-WAV-Processor/build/CMakeFiles/wav-processor.dir/src/IIRfilter.cpp.obj"
+}
+]
