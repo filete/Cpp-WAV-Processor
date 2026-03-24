@@ -1,8 +1,4 @@
 #include "WavFile.h"
-#include <cstdint>
-#include <fstream>
-#include <iostream>
-#include <vector>
 
 WavFile::WavFile(const std::string &filename) : fileName(filename) {
   if (read())
@@ -13,7 +9,11 @@ WavFile::~WavFile() {
   audioData.clear();
   header = {};
 }
+// Getetrs
+const WavHeader &WavFile::getHeader() const { return header; }
+const std::vector<float> &WavFile::getData() const { return audioData; }
 
+// File reading
 bool WavFile::read() {
 
   std::string filesPath = "../samples/";
@@ -25,11 +25,13 @@ bool WavFile::read() {
     return false;
   }
 
-  std::vector<uint8_t> buffer(header.getDataSize());
+  std::vector<int8_t> buffer(header.getDataSize());
   audioFile.read(reinterpret_cast<char *>(buffer.data()), header.getDataSize());
 
   for (int i = 0; i < buffer.size(); i += 2) {
     int16_t sample = *reinterpret_cast<int16_t *>(&buffer[i]);
+    if (i < 150)
+      std::cout << "Sample " << i / 2 << ":\t" << sample << "\n";
     audioData.push_back(static_cast<float>(sample) /
                         (1 << (header.getBitsPerSample() - 1)));
   }
@@ -38,5 +40,8 @@ bool WavFile::read() {
   return true;
 }
 
-const WavHeader &WavFile::getHeader() const { return header; }
-const std::vector<float> &WavFile::getData() const { return audioData; }
+const void WavFile::printData(int size) {
+  for (int i = 0; i < size; i++) {
+    std::cout << "Value " << i << ":\t" << audioData[i] << "\n";
+  }
+}

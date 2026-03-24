@@ -1,5 +1,8 @@
 #pragma once
 #include "WavHeader.h"
+#include <cstdint>
+#include <fstream>
+#include <iostream>
 #include <vector>
 
 class WavFile {
@@ -9,6 +12,7 @@ public:
   bool read();
   const WavHeader &getHeader() const;
   const std::vector<float> &getData() const;
+  const void printData(int size);
 
 private:
   std::string fileName;

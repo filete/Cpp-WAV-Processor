@@ -1,6 +1,6 @@
-#include "WavFile.h"
+#include "main.h"
 
 int main(void) {
-    WavFile testWav("guitar.wav");
+  WavFile testWav("guitar.wav");
   return 0;
 }
