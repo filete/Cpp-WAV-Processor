@@ -7,7 +7,7 @@ c++ .wav audio files processor (under construction).
 
 - [x] Read and interpret a .wav file header.
 - [x] Read and interpret a .wav file data.
-- [ ] Process the data from the file applying an IIR lowpass/highpass filter.
+- [ ] Process the data from the file applying an IIR(**I**nfinite **I**mpulse **R**esponse) lowpass/highpass filter.
 - [ ] Write a .wav output file with the processed data.
 - [ ] Add command line arguments.
 - [ ] ASCII FFT visualisation (*optional*).
