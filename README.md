@@ -13,7 +13,7 @@ c++ 16bit WAV PMC audio files processor (under construction).
 - [ ] Add command line arguments.
 - [ ] ASCII FFT visualisation (*optional*).
 
->[!warning] Only use 16bit WAV, any other different format may couse undesired results.
+> **Only use 16bit WAV** — any other different format may couse undesired results.
 > Be midnful with the playing volume of the output file. 
 
 ### Technologies used
