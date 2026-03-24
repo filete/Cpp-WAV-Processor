@@ -1,8 +1,10 @@
+([English](https://github.com/filete/Cpp-WAV-Processor/blob/main/README.md))
+
 # Procesador de WAV en C++
 
 procesador de ficheros .wav con c++ (en construcción).
 
-##### Funcionalidades
+### Funcionalidades
 
 - [x] Leer e interpretar la información de la cabecera de un wav.
 - [x] Leer e interpretar la información de los datos de un wav.
@@ -11,12 +13,12 @@ procesador de ficheros .wav con c++ (en construcción).
 - [ ] Añadir argumentos en línea de comandos.
 - [ ] Visualización del FFT mediante ASCII (*opcional*).
 
-##### Tecnologías usadas
+### Tecnologías usadas
 
 - C++17
 - CMake
 
-##### Cómo compilarlo
+### Cómo compilarlo
 
 ```bash
 mkdir build && cd build
