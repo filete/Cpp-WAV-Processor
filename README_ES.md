@@ -10,7 +10,7 @@ Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 - [x] Leer e interpretar la información de los datos de un wav.
 - [x] Procesar los datos del fichero aplicando un IIR(**R**espuesta de **I**mpulsos **I**nfinita) pasa-alto/pasa-bajo
 - [x] Escribir un fichero .wav con los datos procesados
-- [ ] Añadir argumentos en línea de comandos.
+- [x] Añadir argumentos en línea de comandos.
 - [ ] Visualización del FFT mediante ASCII (*opcional*).
 
 > **Solo usar WAV de 16bit** — otro formato distinto puede dar resultados no esperados.
