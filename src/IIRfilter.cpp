@@ -1,8 +1,5 @@
 #include "IIRfilter.hpp"
-#include "WavFile.hpp"
-#include "WavHeader.hpp"
-#include <cstdint>
-#include <vector>
+
 
 IIRfilter::IIRfilter(const WavFile &audioFile) {
   sampleRate = audioFile.getHeader().getSampleRate();
@@ -16,14 +13,14 @@ void IIRfilter::setAlpha() {
   alpha = (dt / (rc + dt));
 }
 
-void IIRfilter::setCutoff(uint16_t frequency) { cutOff = frequency; }
+void IIRfilter::setCutoff(const uint16_t frequency) { cutOff = frequency; }
 
-float IIRfilter::applySampleFilter(float inputSample) {
+float IIRfilter::applySampleFilter(const float inputSample) {
   previousSample = alpha * inputSample + (1 - alpha) * previousSample;
   return previousSample;
 }
 
-float IIRfilter::applySampleFilter(float inputSample, uint16_t cutoff) {
+float IIRfilter::applySampleFilter(const float inputSample, const uint16_t cutoff) {
   setCutoff(cutoff);
   setAlpha();
   previousSample = alpha * inputSample + (1 - alpha) * previousSample;
@@ -32,10 +29,10 @@ float IIRfilter::applySampleFilter(float inputSample, uint16_t cutoff) {
 
 std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile) {
   std::vector<float> processedAudio = audioFile.getData();
-  for (const auto &sampleData : audioFile.getData()) {
-    applySampleFilter(sampleData);
+  for (size_t i = 0; i < processedAudio.size(); ++i) {
+    processedAudio[i] = applySampleFilter(processedAudio[i]);
   }
-  std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
+  //std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
   return processedAudio;
 }
 
@@ -47,6 +44,6 @@ std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile,
   for (size_t i = 0; i < processedAudio.size(); ++i) {
     processedAudio[i] = applySampleFilter(processedAudio[i]);
   }
-  std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
+  //std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
   return processedAudio;
 }

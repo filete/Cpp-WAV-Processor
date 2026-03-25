@@ -1,8 +1,5 @@
 #include "WavFile.hpp"
 #include "IIRfilter.hpp"
-#include <cstdint>
-#include <iterator>
-#include <string>
 
 WavFile::WavFile(const std::string &filename) : fileName(filename) {
   if (read())
@@ -10,12 +7,18 @@ WavFile::WavFile(const std::string &filename) : fileName(filename) {
 }
 
 WavFile::~WavFile() {
-  audioData.clear();
-  header = {};
 }
+
 // Getetrs
 const WavHeader &WavFile::getHeader() const { return header; }
 const std::vector<float> &WavFile::getData() const { return audioData; }
+const std::string &WavFile::getFilePath() const { return filesPath; }
+
+
+void WavFile::setFilePath(const std::string &path) {
+  filesPath = path;
+}
+
 
 // File reading
 bool WavFile::read() {

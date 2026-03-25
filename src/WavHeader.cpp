@@ -1,8 +1,4 @@
 #include "WavHeader.hpp"
-#include "IIRfilter.hpp"
-#include <fstream>
-#include <iostream>
-#include <string>
 
 WavHeader::WavHeader() {}
 WavHeader::~WavHeader() {}
@@ -52,7 +48,7 @@ bool WavHeader::write(const std::string &fileName, std::ofstream &outputFile) {
                      sizeof(bitsPerSample));
     outputFile.write(dataBlocId.data(), sizeof(dataBlocId));
     outputFile.write(reinterpret_cast<char *>(&dataSize), sizeof(dataSize));
-    std::cout << "File header written: \x1b[34m" << fileName << "\x1b[0m" << "\n";
+    //std::cout << "File header written: \x1b[34m" << fileName << "\x1b[0m" << "\n";
     //printState();
     return true;
   }

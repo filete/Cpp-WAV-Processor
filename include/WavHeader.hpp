@@ -3,6 +3,8 @@
 #include <array>
 #include <cstdint>
 #include <string>
+#include <fstream>
+#include <iostream>
 
 class WavHeader {
 public:
