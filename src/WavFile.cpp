@@ -1,5 +1,5 @@
-#include "WavFile.h"
-#include "IIRfilter.h"
+#include "WavFile.hpp"
+#include "IIRfilter.hpp"
 #include <cstdint>
 #include <iterator>
 #include <string>
@@ -48,7 +48,7 @@ bool WavFile::read() {
 
 bool WavFile::write(const std::string &fileName) {
   std::ofstream outputFile;
-  outputFile.open(filesPath + fileName + ".wav", std::ios::binary);
+  outputFile.open(filesPath + fileName , std::ios::binary);
 
   if (outputFile) {
     header.write(fileName, outputFile);

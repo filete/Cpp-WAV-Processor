@@ -1,5 +1,5 @@
-#include "WavHeader.h"
-#include "IIRfilter.h"
+#include "WavHeader.hpp"
+#include "IIRfilter.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>

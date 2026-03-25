@@ -1,6 +1,6 @@
-#include "IIRfilter.h"
-#include "WavFile.h"
-#include "WavHeader.h"
+#include "IIRfilter.hpp"
+#include "WavFile.hpp"
+#include "WavHeader.hpp"
 #include <cstdint>
 #include <vector>
 
