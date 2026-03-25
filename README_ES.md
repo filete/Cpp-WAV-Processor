@@ -10,8 +10,8 @@ Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 
 - [x] Leer e interpretar la información de la cabecera de un wav.
 - [x] Leer e interpretar la información de los datos de un wav.
-- [x] Procesar los datos del fichero aplicando un IIR(**R**espuesta de **I**mpulsos **I**nfinita) pasa-alto/pasa-bajo
-- [x] Escribir un fichero .wav con los datos procesados
+- [x] Procesar los datos del fichero aplicando un IIR(**R**espuesta de **I**mpulsos **I**nfinita) pasa-bajo.
+- [x] Escribir un fichero .wav con los datos procesados.
 - [x] Añadir argumentos en línea de comandos.
 - [ ] Visualización del FFT mediante ASCII (_opcional_).
 
@@ -19,6 +19,30 @@ Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 > Cuidado con el volumen de reproducción del fichero salida.
 
 Probado en Linux y Windows 11.
+
+## Como usarlo
+
+### Uso
+
+```sh
+./wav-processor <ficheroEntrada.wav> <ficheroSalida.wav> [--cutoff <Hz>] [--filepath]
+```
+
+`<> = obligatorio   [] = opcional` .
+
+**Ejemplo**:
+*Usando los ficheros y carpeta de ejemplo.*
+```sh
+./wav-processor guitar16b.wav gitar600cu --cutoff 600 --filepath ../samples/
+```
+
+#### Argumentos
+
+| Argumento | Explicación |
+|----------|-------------|
+| `-c`, `--cutoff` | Especifica la frecuencia de corte (Hz). |
+| `-d`, `--file-dir` | Especifica el directorio de origen y destino de los archivos. |
+| `-h`, `--help` | Imprime el mensaje de ayuda. |
 
 ## Tecnologías usadas
 
@@ -28,6 +52,7 @@ Probado en Linux y Windows 11.
 
 ## Cómo compilarlo
 
+*Usando CMake.*
 ```bash
 mkdir build && cd build
 cmake ..
