@@ -1,6 +1,6 @@
 #pragma once
-#include "WavFile.h"
-#include "WavHeader.h"
+#include "WavFile.hpp"
+#include "WavHeader.hpp"
 #include <cstdint>
 #include <vector>
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "WavHeader.h"
+#include "WavHeader.hpp"
 #include <cstdint>
 #include <fstream>
 #include <iostream>
