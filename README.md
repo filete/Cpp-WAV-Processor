@@ -24,6 +24,8 @@ Tested on Linux and Windows 11.
 
 #### Usage
 
+***
+
 ```sh
 ./wav-processor <inputfile.wav> <outputfile.wav> [--cutoff <Hz>] [--filepath]
 ```
