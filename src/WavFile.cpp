@@ -6,7 +6,7 @@
 
 WavFile::WavFile(const std::string &filename) : fileName(filename) {
   if (read())
-    std::cout << fileName << " read successfuly!" << "\n";
+    std::cout << "\x1b[34m" << fileName << "\x1b[32m read successfuly!" << "\x1b[0m" << "\n";
 }
 
 WavFile::~WavFile() {
@@ -41,7 +41,7 @@ bool WavFile::read() {
     return true;
   }
 
-  std::cerr << "Error opening file: " << filesPath << "\n";
+  std::cerr << "\x1b[31mError opening file: " << filesPath << "\x1b[0m" << "\n";
   audioFile.close();
   return false;
 }
@@ -58,11 +58,11 @@ bool WavFile::write(const std::string &fileName) {
       outputFile.write(reinterpret_cast<const char *>(&sample), sizeof(sample));
     }
     outputFile.close();
-    std::cout << "File written successfuly!\n";
+    std::cout << "File \x1b[34m" << fileName << "\x1b[32m written successfuly!\x1b[0m" << "\n";
     return true;
   }
   outputFile.close();
-  std::cerr << "Error opening file: " << fileName << "\n";
+  std::cerr << "\x1b[31mError opening file: " << fileName << "\x1b[0m" << "\n";
   return false;
 }
 

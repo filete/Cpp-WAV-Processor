@@ -28,7 +28,8 @@ bool WavHeader::read(const std::string &fileName, std::ifstream &audioFile) {
 
     return true;
   }
-  std::cerr << "Error opening file: " << fileName << "\n";
+  std::cerr << "\x1b[31mError opening file: " << fileName << "\x1b[0m"
+  << "\n";
   return false;
 }
 
@@ -51,30 +52,35 @@ bool WavHeader::write(const std::string &fileName, std::ofstream &outputFile) {
                      sizeof(bitsPerSample));
     outputFile.write(dataBlocId.data(), sizeof(dataBlocId));
     outputFile.write(reinterpret_cast<char *>(&dataSize), sizeof(dataSize));
-    std::cout << "File header written: " << fileName << "\n";
+    std::cout << "File header written: \x1b[34m" << fileName << "\x1b[0m" << "\n";
+    //printState();
     return true;
   }
-  std::cerr << "Error opening file: " << fileName << "\n";
+  std::cerr << "\x1b[31mError opening file: " << fileName << "\x1b[0m"
+  << "\n";
   return false;
 }
 
 void WavHeader::printState() {
-  std::cout << "File Type: "
+  std::cout << "File Type: \x1b[33m"
             << std::string(fileTypeBlocID.data(), fileTypeBlocID.size())
-            << "\n";
-  std::cout << "File Size: " << fileSize << "\n";
-  std::cout << "File Format: "
-            << std::string(fileFormatID.data(), fileFormatID.size()) << "\n";
-  std::cout << "Format Bloc ID: "
-            << std::string(formatBlocID.data(), formatBlocID.size()) << "\n";
-  std::cout << "Bloc Size: " << blocSize << "\n";
-  std::cout << "Audio Format: " << audioFormat << "\n";
-  std::cout << "Num Channels: " << numChannels << "\n";
-  std::cout << "Sample Rate: " << sampleRate << "\n";
-  std::cout << "Byte Rate: " << byteRate << "\n";
-  std::cout << "Byte Per Bloc: " << bytePerBloc << "\n";
-  std::cout << "Bits Per Sample: " << bitsPerSample << "\n";
-  std::cout << "Data Bloc ID: "
-            << std::string(dataBlocId.data(), dataBlocId.size()) << "\n";
-  std::cout << "Data Size: " << dataSize << "\n";
+            << "\x1b[0m" << "\n";
+  std::cout << "File Size: \x1b[33m" << fileSize << "\x1b[0m" << "\n";
+  std::cout << "File Format: \x1b[33m"
+            << std::string(fileFormatID.data(), fileFormatID.size())
+            << "\x1b[0m" << "\n";
+  std::cout << "Format Bloc ID: \x1b[33m"
+            << std::string(formatBlocID.data(), formatBlocID.size())
+            << "\x1b[0m" << "\n";
+  std::cout << "Bloc Size: \x1b[33m" << blocSize << "\x1b[0m" << "\n";
+  std::cout << "Audio Format: \x1b[33m" << audioFormat << "\x1b[0m" << "\n";
+  std::cout << "Num Channels: \x1b[33m" << numChannels << "\x1b[0m" << "\n";
+  std::cout << "Sample Rate: \x1b[33m" << sampleRate << "\x1b[0m" << "\n";
+  std::cout << "Byte Rate: \x1b[33m" << byteRate << "\x1b[0m" << "\n";
+  std::cout << "Byte Per Bloc: \x1b[33m" << bytePerBloc << "\x1b[0m" << "\n";
+  std::cout << "Bits Per Sample: \x1b[33m" << bitsPerSample << "\x1b[0m" << "\n";
+  std::cout << "Data Bloc ID: \x1b[33m"
+            << std::string(dataBlocId.data(), dataBlocId.size())
+            << "\x1b[0m" << "\n";
+  std::cout << "Data Size: \x1b[33m" << dataSize << "\x1b[0m" << "\n";
 }

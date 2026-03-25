@@ -35,7 +35,7 @@ std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile) {
   for (const auto &sampleData : audioFile.getData()) {
     applySampleFilter(sampleData);
   }
-  std::cout << "Filtered audio size: " << processedAudio.size() << "\n";
+  std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
   return processedAudio;
 }
 
@@ -47,6 +47,6 @@ std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile,
   for (size_t i = 0; i < processedAudio.size(); ++i) {
     processedAudio[i] = applySampleFilter(processedAudio[i]);
   }
-  std::cout << "Filtered audio size: " << processedAudio.size() << "\n";
+  std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() << "\x1b[0m" << "\n";
   return processedAudio;
 }
