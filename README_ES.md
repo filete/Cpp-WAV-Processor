@@ -13,7 +13,7 @@ Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 - [ ] Añadir argumentos en línea de comandos.
 - [ ] Visualización del FFT mediante ASCII (*opcional*).
 
->[!warning] Solo usar WAV de 16bit otro formato distinto puede dar resultados no esperados.
+> **Solo usar WAV de 16bit** — otro formato distinto puede dar resultados no esperados.
 > Cuidado con el volumen de reproducción del fichero salida.
 
 ### Tecnologías usadas
