@@ -20,6 +20,7 @@ Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 
 - C++17
 - CMake
+- [CLI11](https://github.com/CLIUtils/CLI11) por [CLIUtils](https://github.com/CLIUtils)
 
 ### Cómo compilarlo
 

@@ -20,6 +20,7 @@ c++ 16bit WAV PMC audio files processor (under construction).
 
 - C++17
 - CMake
+- [CLI11](https://github.com/CLIUtils/CLI11) by [CLIUtils](https://github.com/CLIUtils)
 
 ### How to compile
 
