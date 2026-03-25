@@ -24,17 +24,23 @@ Probado en Linux y Windows 11.
 
 ### Uso
 
+***
+
 ```sh
 ./wav-processor <ficheroEntrada.wav> <ficheroSalida.wav> [--cutoff <Hz>] [--filepath]
 ```
 
 `<> = obligatorio   [] = opcional` .
 
+***
+
 **Ejemplo**:
 *Usando los ficheros y carpeta de ejemplo.*
 ```sh
 ./wav-processor guitar16b.wav gitar600cu --cutoff 600 --filepath ../samples/
 ```
+
+***
 
 #### Argumentos
 
