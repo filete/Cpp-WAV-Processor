@@ -30,11 +30,15 @@ Tested on Linux and Windows 11.
 
 `<> = required   [] = optional` .
 
+***
+
 **Example**:
 *Using the example audio files and folder.*
 ```sh
 ./wav-processor guitar16b.wav gitar600cu --cutoff 600 --filepath ../samples/
 ```
+
+***
 
 #### Arguments
 
