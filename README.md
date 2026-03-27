@@ -1,8 +1,11 @@
 # C++ WAV Processor
 
+> ([Español](README_ES.md))
+
 c++ 16bit WAV PMC audio files processor (under construction).
 
-([Español](https://github.com/filete/Cpp-WAV-Processor/blob/main/README_ES.md))
+![GithubGif](https://github.com/user-attachments/assets/3cfd2c00-93cf-4bf5-b471-ba95049a65c1)
+
 
 ---
 
