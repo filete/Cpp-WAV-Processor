@@ -1,8 +1,10 @@
 # Procesador de WAV en C++
 
+> ([English](README.md))
+
 Procesador de ficheros WAV PMC de 16bit con c++ (en construcción).
 
-([English](https://github.com/filete/Cpp-WAV-Processor/blob/main/README.md))
+![GithubGif](https://github.com/user-attachments/assets/3cfd2c00-93cf-4bf5-b471-ba95049a65c1)
 
 ---
 
