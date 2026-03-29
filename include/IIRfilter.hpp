@@ -1,10 +1,10 @@
 #pragma once
+
+#include "Constants.hpp"
 #include "WavFile.hpp"
 #include "WavHeader.hpp"
 #include <cstdint>
 #include <vector>
-
-static constexpr float PI = 3.14159265358979323846f;
 
 class IIRfilter {
 public:
@@ -18,11 +18,10 @@ public:
   std::vector<float> applyFileFilter(const WavFile &audioFile, uint16_t cutoff);
 
 private:
-
-  uint32_t sampleRate{};
-  float alpha{};
-  float cutOff{1000.0f};
-  float previousSample{};
+  uint32_t mSampleRate{};
+  float mAlpha{};
+  float mCutOff{1000.0f};
+  float mPreviousSample{};
 
   void setAlpha();
 };

@@ -1,59 +1,80 @@
 # C++ WAV Processor
 
-> ([Español](README_ES.md))
+> Other languages: [Español](README_ES.md)
 
-c++ 16bit WAV PMC audio files processor (under construction).
+Command-line tool for processing and synthesizing 16-bit PCM WAV audio files, written in C++17.
 
 ![GithubGif](https://github.com/user-attachments/assets/3cfd2c00-93cf-4bf5-b471-ba95049a65c1)
-
-
 ---
 
 ## Functionalities
 
 - [x] Read and interpret a .wav file header.
-- [x] Read and interpret a .wav file data.
-- [x] Process the data from the file applying an IIR(**I**nfinite **I**mpulse **R**esponse) lowpass filter.
-- [x] Write a .wav output file with the processed data.
-- [x] Add command line arguments.
-- [ ] ASCII FFT visualisation (_optional_).
+- [x] Read and interpret a .wav file audio data.
+- [x] Process audio applying an IIR (Infinite Impulse Response) lowpass filter.
+- [x] Synthesize audio waveforms (sine, square, triangle, sawtooth).
+- [x] Write a .wav output file with processed or synthesized data.
+- [x] Full command-line interface with argument validation.
+- [ ] ASCII FFT visualisation (optional).
 
-> **Only use 16bit WAV** — any other different format may cause undesired results.
-> Be mindful with the playing volume of the output file.
+> Only 16-bit WAV files are supported — other formats may produce unexpected results.
+> Be mindful of the playback volume of the output file.
 
 Tested on Linux and Windows 11.
 
-### How to use
+---
 
-#### Usage
+## How to use
 
-***
+The program runs in two modes: **filter** and **synth**.
+
+### Filter mode
+
+Reads an existing WAV file, applies an IIR lowpass filter, and writes the result.
 
 ```sh
-./wav-processor <inputfile.wav> <outputfile.wav> [--cutoff <Hz>] [--filepath]
+./wav-processor -m filter -i <input.wav> -o <output.wav> [options]
 ```
 
-`<> = required   [] = optional` .
+**Example:**
 
-***
-
-**Example**:
-*Using the example audio files and folder.*
 ```sh
-./wav-processor guitar16b.wav gitar600cu --cutoff 600 --filepath ../samples/
+./wav-processor -m filter -i guitar16b.wav -o guitar_filtered.wav --cutoff 800 --file-dir ../samples/
 ```
 
-***
+### Synth mode
 
-#### Arguments
+Generates a waveform and writes it to a WAV file.
 
-| Argument | Explanation |
-|----------|-------------|
-| `-c`, `--cutoff` | Set the filter cutoff frequency (Hz). |
-| `-d`, `--file-dir` | Select the directory for input and output files, relative to the program execution directory.|
-| `-h`, `--help` | Print help message |
+```sh
+./wav-processor -m synth -o <output.wav> [options]
+```
 
-## Technologies used
+**Example:**
+
+```sh
+./wav-processor -m synth -o sine440.wav -w 0 -f 440 -d 2.0 -a 0.8 --file-dir ../samples/
+```
+
+## Arguments
+
+| Argument             | Mode   | Description                                                           |
+| -------------------- | ------ | --------------------------------------------------------------------- |
+| `-m`, `--mode`       | both   | Program mode: `filter` or `synth`. **Required.**                      |
+| `-o`, `--output`     | both   | Output WAV file name. **Required.**                                   |
+| `-i`, `--input-file` | filter | Input WAV file name.                                                  |
+| `-c`, `--cutoff`     | filter | Filter cutoff frequency in Hz (0–20000).                              |
+| `-w`, `--wave`       | synth  | Wave type: `0` sine, `1` square, `2` triangle, `3` sawtooth.          |
+| `-f`, `--frequency`  | synth  | Oscillator frequency in Hz (0–20000). Default: `440`.                 |
+| `-d`, `--duration`   | synth  | Duration of the output in seconds (0.2–30). Default: `1.0`.           |
+| `-a`, `--amplitude`  | synth  | Amplitude of the output (0.0–1.0). Default: `0.85`.                   |
+| `--file-dir`         | both   | Directory for input and output files, relative to the execution path. |
+| `--header-info`      | both   | Print WAV header info after processing.                               |
+| `-h`, `--help`       | both   | Print help message.                                                   |
+
+---
+
+## Technologies
 
 - C++17
 - CMake
@@ -61,7 +82,8 @@ Tested on Linux and Windows 11.
 
 ## How to compile
 
-*Using CMake.*
+_Using CMake._
+
 ```bash
 mkdir build && cd build
 cmake ..

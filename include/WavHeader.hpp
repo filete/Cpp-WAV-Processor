@@ -2,38 +2,58 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
 #include <fstream>
 #include <iostream>
+#include <string>
 
 class WavHeader {
 public:
-  WavHeader();
-  ~WavHeader();
+  WavHeader() = default;
+  WavHeader(const uint16_t bitsPerSample, const uint16_t channels,
+            const uint32_t sampleRate);
+  ~WavHeader() = default;
+
   bool read(const std::string &fileName, std::ifstream &audioFile);
   bool write(const std::string &fileName, std::ofstream &outputFile);
-  void printState();
-  uint32_t getDataSize() const { return dataSize; }
-  uint32_t getFileSize() const { return fileSize; }
-  uint16_t getNumChannels() const { return numChannels; }
-  uint32_t getSampleRate() const { return sampleRate; }
-  uint16_t getBitsPerSample() const { return bitsPerSample; }
+
+  void printState() const;
+  uint32_t getDataSize() const noexcept { return mDataSize; }
+  uint32_t getFileSize() const noexcept { return mFileSize; }
+  uint16_t getNumChannels() const noexcept { return mNumChannels; }
+  uint32_t getSampleRate() const noexcept { return mSampleRate; }
+  uint16_t getBitsPerSample() const noexcept { return mBitsPerSample; }
+
+  void setDataSize(uint32_t dataSize);
+  void setFileSize();
 
 private:
+  // Stetters
+  void setFileTypeBlocID();
+  void setFileFormatID();
+  void setFormatBlocID();
+  void setBlocSize();
+  void setAudioFormat();
+  void setNumChannels(uint16_t channels);
+  void setSampleRate(uint32_t sampleRat);
+  void setByteRate();
+  void setBytePerBloc();
+  void setBitsPerSample(uint16_t bitsPerSample);
+  void setDataBlocId();
+
   // Master RIFF chunk
-  std::array<char, 4> fileTypeBlocID{};
-  uint32_t fileSize{};
-  std::array<char, 4> fileFormatID{};
+  std::array<char, 4> mFileTypeBlocID{};
+  uint32_t mFileSize{};
+  std::array<char, 4> mFileFormatID{};
   // Chunk describing the data format
-  std::array<char, 4> formatBlocID{};
-  uint32_t blocSize{};
-  uint16_t audioFormat{};
-  uint16_t numChannels{};
-  uint32_t sampleRate{};
-  uint32_t byteRate{};
-  uint16_t bytePerBloc{};
-  uint16_t bitsPerSample{};
+  std::array<char, 4> mFormatBlocID{};
+  uint32_t mBlocSize{};
+  uint16_t mAudioFormat{};
+  uint16_t mNumChannels{};
+  uint32_t mSampleRate{};
+  uint32_t mByteRate{};
+  uint16_t mBytePerBloc{};
+  uint16_t mBitsPerSample{};
   // Chunk containing the sampled data
-  std::array<char, 4> dataBlocId{};
-  uint32_t dataSize{};
+  std::array<char, 4> mDataBlocId{};
+  uint32_t mDataSize{};
 };
