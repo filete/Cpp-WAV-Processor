@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
   CLI::App app{"WAV file processor"};
   argv = app.ensure_utf8(argv);
 
-  std::string inputFile, outputFile, fileDirectory, mode;
+  std::string inputFile, outputFile, fileDirectory{"../samples/"}, mode;
   uint16_t cutoff{}, waveTypeI{0};
   float frequency{440.0f}, duration{1.0f}, amp{0.85};
   bool flag_headerInfo{false};
