@@ -4,16 +4,17 @@
 
 Command-line tool for processing and synthesizing 16-bit PCM WAV audio files, written in C++17.
 
+![GithubGif](https://github.com/user-attachments/assets/3cfd2c00-93cf-4bf5-b471-ba95049a65c1)
 ---
 
 ## Functionalities
 
-- [ ] Read and interpret a .wav file header.
-- [ ] Read and interpret a .wav file audio data.
-- [ ] Process audio applying an IIR (Infinite Impulse Response) lowpass filter.
-- [ ] Synthesize audio waveforms (sine, square, triangle, sawtooth).
-- [ ] Write a .wav output file with processed or synthesized data.
-- [ ] Full command-line interface with argument validation.
+- [x] Read and interpret a .wav file header.
+- [x] Read and interpret a .wav file audio data.
+- [x] Process audio applying an IIR (Infinite Impulse Response) lowpass filter.
+- [x] Synthesize audio waveforms (sine, square, triangle, sawtooth).
+- [x] Write a .wav output file with processed or synthesized data.
+- [x] Full command-line interface with argument validation.
 - [ ] ASCII FFT visualisation (optional).
 
 > Only 16-bit WAV files are supported — other formats may produce unexpected results.
