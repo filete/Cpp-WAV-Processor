@@ -1,8 +1,8 @@
 # C++ WAV Processor
 
-Command-line tool for processing and synthesizing 16-bit PCM WAV audio files, written in C++17.
+> Other languages: ([Español](README_ES.md))
 
-([Español](README_ES.md))
+Command-line tool for processing and synthesizing 16-bit PCM WAV audio files, written in C++17.
 
 ---
 
