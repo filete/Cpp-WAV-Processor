@@ -10,6 +10,7 @@ add_executable(wav-processor
   src/WavHeader.cpp
   src/WavFile.cpp
   src/IIRfilter.cpp
+  src/SynthWave.cpp
 )
 
 target_include_directories(wav-processor
