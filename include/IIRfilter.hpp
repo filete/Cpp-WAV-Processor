@@ -18,7 +18,7 @@ public:
 private:
   uint32_t mSampleRate{};
   float mAlpha{};
-  float mCutOff{1000};
+  float mCutOff{1000.0f};
   float mPreviousSample{};
 
   void setAlpha();

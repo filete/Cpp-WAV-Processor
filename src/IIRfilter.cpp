@@ -22,8 +22,6 @@ float IIRfilter::applySampleFilter(const float inputSample,
   return mPreviousSample;
 }
 
-
-
 std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile,
                                               const float cutoff) {
   setCutoff(cutoff);

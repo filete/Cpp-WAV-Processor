@@ -4,6 +4,7 @@
 
 Herramienta de línea de comandos para procesar y sintetizar ficheros de audio WAV PCM de 16 bits, escrita en C++17.
 
+![GithubGif](https://github.com/user-attachments/assets/3cfd2c00-93cf-4bf5-b471-ba95049a65c1)
 ---
 
 ## Funcionalidades
