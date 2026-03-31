@@ -14,31 +14,16 @@ void IIRfilter::setAlpha() {
 
 void IIRfilter::setCutoff(const uint16_t frequency) { mCutOff = frequency; }
 
-float IIRfilter::applySampleFilter(const float inputSample) {
-  mPreviousSample = mAlpha * inputSample + (1 - mAlpha) * mPreviousSample;
-  return mPreviousSample;
-}
-
 float IIRfilter::applySampleFilter(const float inputSample,
-                                   const uint16_t cutoff) {
+                                   const float cutoff) {
   setCutoff(cutoff);
   setAlpha();
   mPreviousSample = mAlpha * inputSample + (1 - mAlpha) * mPreviousSample;
   return mPreviousSample;
 }
 
-std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile) {
-  std::vector<float> processedAudio = audioFile.getData();
-  for (size_t i = 0; i < processedAudio.size(); ++i) {
-    processedAudio[i] = applySampleFilter(processedAudio[i]);
-  }
-  // std::cout << "Filtered audio size: \x1b[33m" << processedAudio.size() <<
-  // "\x1b[0m" << "\n";
-  return processedAudio;
-}
-
 std::vector<float> IIRfilter::applyFileFilter(const WavFile &audioFile,
-                                              uint16_t cutoff) {
+                                              const float cutoff) {
   setCutoff(cutoff);
   setAlpha();
   std::vector<float> processedAudio = audioFile.getData(); // copia

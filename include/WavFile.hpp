@@ -19,8 +19,7 @@ public:
   bool read();
   bool write(const std::string &fileName);
 
-  bool applyFilter();
-  bool applyFilter(uint16_t cutoff);
+  bool applyFilter(const float cutoff = 1000.f);
   void synthAudio(const SynthWave::WaveType wave, const float duration,
                   const float frequency, const float amp);
 

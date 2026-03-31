@@ -72,13 +72,7 @@ bool WavFile::write(const std::string &fileName) {
 }
 
 // Fileter processign
-bool WavFile::applyFilter() {
-  IIRfilter filter(*this);
-  mAudioData = filter.applyFileFilter(*this);
-  return true;
-}
-
-bool WavFile::applyFilter(uint16_t cutoff) {
+bool WavFile::applyFilter(const float cutoff) {
   IIRfilter filter(*this);
   mAudioData = filter.applyFileFilter(*this, cutoff);
   return true;
