@@ -6,15 +6,15 @@ int main(int argc, char *argv[]) {
   argv = app.ensure_utf8(argv);
 
   std::string inputFile, outputFile, fileDirectory{"../samples/"}, mode;
-  uint16_t cutoff{}, waveTypeI{0};
-  float frequency{440.0f}, duration{1.0f}, amp{0.85};
+  uint16_t waveTypeI{0};
+  float cutoff{}, frequency{440.0f}, duration{1.0f}, amp{0.85};
   bool flag_headerInfo{false};
 
   app.add_option("-m,--mode", mode, "Program mode(filter | synth)")->required();
   app.add_option("-i,--input-file", inputFile, "Input WAV file name");
   app.add_option("-o,--output", outputFile, "Output WAV file name")->required();
   app.add_option("-c,--cutoff", cutoff, "Filter cutoff frequency in Hz")
-      ->check(CLI::Range(0, 20000));
+      ->check(CLI::Range(0.f, 20000.f));
   app.add_option("-w,--wave", waveTypeI,
                  "Wave type to sinthesize (0 [sine] | 1 [square] | 2 "
                  "[triangle] | 3 [sawtooth])")

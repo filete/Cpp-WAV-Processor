@@ -12,15 +12,13 @@ public:
   ~IIRfilter();
 
   void setCutoff(const uint16_t frequency);
-  float applySampleFilter(const float inputFrame);
-  float applySampleFilter(const float inputFrame, const uint16_t cutoff);
-  std::vector<float> applyFileFilter(const WavFile &audioFile);
-  std::vector<float> applyFileFilter(const WavFile &audioFile, uint16_t cutoff);
+  float applySampleFilter(const float inputFrame, const float cutoff = 1000.f);
+  std::vector<float> applyFileFilter(const WavFile &audioFile, const float cutoff = 1000.f);
 
 private:
   uint32_t mSampleRate{};
   float mAlpha{};
-  float mCutOff{1000.0f};
+  float mCutOff{1000};
   float mPreviousSample{};
 
   void setAlpha();
